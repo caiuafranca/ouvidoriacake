@@ -191,11 +191,9 @@ class PluginTask extends AppShell {
 		$valid = false;
 		foreach ($pathOptions as $i => $path) {
 			if (!is_dir($path)) {
-				unset($pathOptions[$i]);
+				array_splice($pathOptions, $i, 1);
 			}
 		}
-		$pathOptions = array_values($pathOptions);
-
 		$max = count($pathOptions);
 		while (!$valid) {
 			foreach ($pathOptions as $i => $option) {

@@ -299,22 +299,16 @@ class View extends Object {
 
 /**
  * Constant for view file type 'view'
- *
- * @var string
  */
 	const TYPE_VIEW = 'view';
 
 /**
  * Constant for view file type 'element'
- *
- * @var string
  */
 	const TYPE_ELEMENT = 'element';
 
 /**
  * Constant for view file type 'layout'
- *
- * @var string
  */
 	const TYPE_LAYOUT = 'layout';
 
@@ -451,12 +445,12 @@ class View extends Object {
  *
  * @param string $view Name of view file to use
  * @param string $layout Layout to use.
- * @return string|null Rendered content or null if content already rendered and returned earlier.
+ * @return string Rendered Element
  * @throws CakeException If there is an error in the view.
  */
 	public function render($view = null, $layout = null) {
 		if ($this->hasRendered) {
-			return;
+			return true;
 		}
 		$this->Blocks->set('content', '');
 

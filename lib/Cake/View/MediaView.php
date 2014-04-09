@@ -62,7 +62,7 @@ class MediaView extends View {
  *
  * @param string $view Not used
  * @param string $layout Not used
- * @return void
+ * @return boolean
  */
 	public function render($view = null, $layout = null) {
 		$name = $download = $id = $modified = $path = $cache = $mimeType = $compress = null;
@@ -94,6 +94,7 @@ class MediaView extends View {
 			$this->response->compress();
 		}
 		$this->response->send();
+		return true;
 	}
 
 }

@@ -79,7 +79,8 @@ class Debugger {
 			'traceLine' => '{:reference} - {:path}, line {:line}',
 			'trace' => "Trace:\n{:trace}\n",
 			'context' => "Context:\n{:context}\n",
-		)
+		),
+		'log' => array(),
 	);
 
 /**
@@ -536,8 +537,9 @@ class Debugger {
 		$var = $replace + $var;
 
 		$out = "array(";
-		$break = $end = null;
+		$n = $break = $end = null;
 		if (!empty($var)) {
+			$n = "\n";
 			$break = "\n" . str_repeat("\t", $indent);
 			$end = "\n" . str_repeat("\t", $indent - 1);
 		}

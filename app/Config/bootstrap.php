@@ -69,12 +69,6 @@ Cache::config('default', array('engine' => 'File'));
  * CakePlugin::load('DebugKit'); //Loads a single plugin named DebugKit
  *
  */
- CakePlugin::load('DebugKit');
- 
- CakePlugin::load('CakePtbr');
-
-require APP . 'Plugin' . DS . 'CakePtbr' . DS . 'Config' . DS . 'inflections.php';
-require APP . 'Plugin' . DS . 'CakePtbr' . DS . 'Config' . DS . 'traducao_core.php'; 
 
 /**
  * You can attach event listeners to the request lifecycle as Dispatcher Filter. By default CakePHP bundles two filters:

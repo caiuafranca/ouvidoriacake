@@ -181,7 +181,7 @@ HTML;
  */
 	public function coverageHeader($filename, $percent) {
 		$filename = basename($filename);
-		list($file) = explode('.', $filename);
+		list($file, $ext) = explode('.', $filename);
 		$display = in_array($file, $this->_testNames) ? 'block' : 'none';
 		$primary = $display === 'block' ? 'primary' : '';
 		return <<<HTML

@@ -222,12 +222,12 @@
 /**
  * A random string used in security hashing methods.
  */
-	Configure::write('Security.salt', 'SistemaOuvidoriaEmCakePhp2.4.7');
+	Configure::write('Security.salt', 'alsjhçADKGldjhvxncxmzhLDHFlyflDCC');
 
 /**
  * A random numeric string (digits only) used to encrypt/decrypt strings.
  */
-	Configure::write('Security.cipherSeed', '090420141019');
+	Configure::write('Security.cipherSeed', '1234567654687765789880996');
 
 /**
  * Apply timestamps with the last modified time to static assets (js, css, images).
@@ -275,7 +275,7 @@
  * then the value of `Config.timezone` will be used. This feature allows you to set users' timezone just
  * once instead of passing it each time in function calls.
  */
-	//Configure::write('Config.timezone', 'Europe/Paris');
+	//Configure::write('Config.timezone', 'Europe/Paris')
 
 /**
  *
