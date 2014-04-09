@@ -13,6 +13,8 @@ class PostsController extends AppController {
  *
  * @var array
  */
+ 	public $uses = array('Post', 'Protocolo');
+	
 	public $components = array('Paginator');
 
 /**
@@ -46,8 +48,10 @@ class PostsController extends AppController {
  * @return void
  */
 	public function add() {
+		
 		if ($this->request->is('post')) {
 			$this->Post->create();
+			$this->request->data['Post']['protocolo_id'] = $this->criaProtocolo();			
 			if ($this->Post->save($this->request->data)) {
 				$this->Session->setFlash(__('The post has been saved.'));
 				return $this->redirect(array('action' => 'index'));
@@ -55,12 +59,21 @@ class PostsController extends AppController {
 				$this->Session->setFlash(__('The post could not be saved. Please, try again.'));
 			}
 		}
-		$protocolos = $this->Post->Protocolo->find('list');
+		//$protocolos = $this->Post->Protocolo->find('list');
 		$tipos = $this->Post->Tipo->find('list');
 		$departamentos = $this->Post->Departamento->find('list');
-		$this->set(compact('protocolos', 'tipos', 'departamentos'));
+		$tipoUsuarios = $this->Post->TipoUsuario->find('list');
+		$this->set(compact('tipos', 'departamentos', 'tipoUsuarios'));
 	}
-
+	
+	public function criaProtocolo(){
+		$this->Protocolo->create();
+		$codigoValidacao = uniqid().$this->Protocolo->getId();
+		$numeroProtocolo = uniqid().$this->Protocolo->getId();
+		$this->Protocolo->save(array('Protocolo'=>array('numero_protocolo'=>$numeroProtocolo,
+														'codigo_validacao'=>$codigoValidacao)));
+		return $this->Protocolo->getId();	
+	}
 /**
  * edit method
  *
@@ -86,7 +99,8 @@ class PostsController extends AppController {
 		$protocolos = $this->Post->Protocolo->find('list');
 		$tipos = $this->Post->Tipo->find('list');
 		$departamentos = $this->Post->Departamento->find('list');
-		$this->set(compact('protocolos', 'tipos', 'departamentos'));
+		$tipoUsuarios = $this->Post->TipoUsuario->find('list');
+		$this->set(compact('protocolos', 'tipos', 'departamentos', 'tipoUsuarios'));
 	}
 
 /**

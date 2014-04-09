@@ -1,11 +1,11 @@
 <?php
-App::uses('PostsController', 'Controller');
+App::uses('TipoUsuariosController', 'Controller');
 
 /**
- * PostsController Test Case
+ * TipoUsuariosController Test Case
  *
  */
-class PostsControllerTest extends ControllerTestCase {
+class TipoUsuariosControllerTest extends ControllerTestCase {
 
 /**
  * Fixtures
@@ -13,12 +13,12 @@ class PostsControllerTest extends ControllerTestCase {
  * @var array
  */
 	public $fixtures = array(
+		'app.tipo_usuario',
 		'app.post',
 		'app.protocolo',
 		'app.send',
 		'app.tipo',
-		'app.departamento',
-		'app.tipo_usuario'
+		'app.departamento'
 	);
 
 /**

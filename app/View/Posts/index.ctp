@@ -15,6 +15,7 @@
 			<th><?php echo $this->Paginator->sort('protocolo_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('tipo_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('departamento_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('tipo_usuario_id'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($posts as $post): ?>
@@ -37,6 +38,9 @@
 		</td>
 		<td>
 			<?php echo $this->Html->link($post['Departamento']['nome'], array('controller' => 'departamentos', 'action' => 'view', $post['Departamento']['id'])); ?>
+		</td>
+		<td>
+			<?php echo $this->Html->link($post['TipoUsuario']['nome'], array('controller' => 'tipo_usuarios', 'action' => 'view', $post['TipoUsuario']['id'])); ?>
 		</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $post['Post']['id'])); ?>
@@ -70,5 +74,7 @@
 		<li><?php echo $this->Html->link(__('New Tipo'), array('controller' => 'tipos', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Departamentos'), array('controller' => 'departamentos', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Departamento'), array('controller' => 'departamentos', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Tipo Usuarios'), array('controller' => 'tipo_usuarios', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Tipo Usuario'), array('controller' => 'tipo_usuarios', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

@@ -66,6 +66,11 @@
 			<?php echo $this->Html->link($post['Departamento']['nome'], array('controller' => 'departamentos', 'action' => 'view', $post['Departamento']['id'])); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Tipo Usuario'); ?></dt>
+		<dd>
+			<?php echo $this->Html->link($post['TipoUsuario']['nome'], array('controller' => 'tipo_usuarios', 'action' => 'view', $post['TipoUsuario']['id'])); ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">
@@ -81,5 +86,7 @@
 		<li><?php echo $this->Html->link(__('New Tipo'), array('controller' => 'tipos', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Departamentos'), array('controller' => 'departamentos', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Departamento'), array('controller' => 'departamentos', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Tipo Usuarios'), array('controller' => 'tipo_usuarios', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Tipo Usuario'), array('controller' => 'tipo_usuarios', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
