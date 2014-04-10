@@ -6,7 +6,7 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button><!-- /.navbar-toggle -->
-		<?php echo $this -> Html -> Link('OuvidoriaCake', '#', array('class' => 'navbar-brand')); ?>
+		<?php echo $this -> Html -> Link('OuvidoriaCake','#', array('class' => 'navbar-brand')); ?>
 	</div><!-- /.navbar-header -->
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 		<ul class="nav navbar-nav">
@@ -17,7 +17,7 @@
 					<li><a href="#">Outros Canais</a></li>
 				</ul>
 			</li>
-			<li><a href="#">Consultar Protocolo</a></li>
+			<li><a href="<?php echo $this->base;?>/posts/busca">Consultar Protocolo</a></li>
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Informações<b class="caret"></b></a>
 				<ul class="dropdown-menu">

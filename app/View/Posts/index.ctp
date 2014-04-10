@@ -18,34 +18,19 @@
 	<h2><?php echo __('Posts'); ?></h2>
 	<table cellpadding="0" cellspacing="0" class="table table-responsive">
 	<tr>
-			<th><?php echo $this -> Paginator -> sort('id'); ?></th>
-			<th><?php echo $this -> Paginator -> sort('assunto'); ?></th>
-			<th><?php echo $this -> Paginator -> sort('mensagem'); ?></th>
-			<th><?php echo $this -> Paginator -> sort('nome'); ?></th>
-			<th><?php echo $this -> Paginator -> sort('email'); ?></th>
-			<th><?php echo $this -> Paginator -> sort('phone'); ?></th>
-			<th><?php echo $this -> Paginator -> sort('cpf'); ?></th>
-			<th><?php echo $this -> Paginator -> sort('cnpj'); ?></th>
-			<th><?php echo $this -> Paginator -> sort('data_menssagem'); ?></th>
-			<th><?php echo $this -> Paginator -> sort('status'); ?></th>
 			<th><?php echo $this -> Paginator -> sort('protocolo_id'); ?></th>
 			<th><?php echo $this -> Paginator -> sort('tipo_id'); ?></th>
 			<th><?php echo $this -> Paginator -> sort('departamento_id'); ?></th>
 			<th><?php echo $this -> Paginator -> sort('tipo_usuario_id'); ?></th>
+			<th><?php echo $this -> Paginator -> sort('assunto'); ?></th>
+			<th><?php echo $this -> Paginator -> sort('mensagem'); ?></th>
+			<th><?php echo $this -> Paginator -> sort('nome'); ?></th>
+			<th><?php echo $this -> Paginator -> sort('data_menssagem'); ?></th>
+			<th><?php echo $this -> Paginator -> sort('status'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($posts as $post): ?>
 	<tr>
-		<td><?php echo h($post['Post']['id']); ?>&nbsp;</td>
-		<td><?php echo h($post['Post']['assunto']); ?>&nbsp;</td>
-		<td><?php echo h($post['Post']['mensagem']); ?>&nbsp;</td>
-		<td><?php echo h($post['Post']['nome']); ?>&nbsp;</td>
-		<td><?php echo h($post['Post']['email']); ?>&nbsp;</td>
-		<td><?php echo h($post['Post']['phone']); ?>&nbsp;</td>
-		<td><?php echo h($post['Post']['cpf']); ?>&nbsp;</td>
-		<td><?php echo h($post['Post']['cnpj']); ?>&nbsp;</td>
-		<td><?php echo h($this->Time->format('d/m/Y H:i:s',$post['Post']['data_menssagem']));?>&nbsp;</td>
-		<td><?php echo h($post['Post']['status']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this -> Html -> link($post['Protocolo']['numero_protocolo'], array('controller' => 'protocolos', 'action' => 'view', $post['Protocolo']['id'])); ?>
 		</td>
@@ -58,6 +43,12 @@
 		<td>
 			<?php echo $this -> Html -> link($post['TipoUsuario']['nome'], array('controller' => 'tipo_usuarios', 'action' => 'view', $post['TipoUsuario']['id'])); ?>
 		</td>
+		<td><?php echo h($post['Post']['assunto']); ?>&nbsp;</td>
+		<td><?php echo h($post['Post']['mensagem']); ?>&nbsp;</td>
+		<td><?php echo h($post['Post']['nome']); ?>&nbsp;</td>
+		<td><?php echo h($this->Time->format('d/m/Y H:i:s',$post['Post']['data_menssagem']));?>&nbsp;</td>
+		<td><?php echo h($post['Post']['status']); ?>&nbsp;</td>
+		
 		<td class="actions">
 			<?php echo $this -> Html -> link(__('View'), array('action' => 'view', $post['Post']['id']), array('class' => 'btn btn-default btn-xs')); ?>
 			<?php echo $this -> Html -> link(__('Edit'), array('action' => 'edit', $post['Post']['id']), array('class' => 'btn btn-default btn-xs')); ?>
@@ -67,10 +58,10 @@
 <?php endforeach; ?>
 	</table>
 	<p><small>
-                    <?php
-					echo $this -> Paginator -> counter(array('format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')));
-                    ?>			</small></p>
-
+       <?php echo $this -> Paginator -> 
+       counter(array('format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')));
+                    ?>
+    </small></p>
             <ul class="pagination">
                 <?php
 				echo $this -> Paginator -> prev('< ' . __('Previous'), array('tag' => 'li'), null, array('class' => 'disabled', 'tag' => 'li', 'disabledTag' => 'a'));

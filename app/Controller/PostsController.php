@@ -26,7 +26,18 @@ class PostsController extends AppController {
 		$this->Post->recursive = 0;
 		$this->set('posts', $this->Paginator->paginate());
 	}
-
+	/**
+	 * Busca method
+	 */
+	
+	public function busca(){
+			if(!empty($this->request->data)){
+				$codigo = $this->request->data;
+				$result = $this->Protocolo->Post->find('all', 
+				array('conditions' => array('Protocolo.numero_protocolo' => $codigo['Post']['numero_protocolo'])));
+				$this->set('busca',$result);
+			}
+	}
 /**
  * view method
  *
