@@ -68,8 +68,8 @@ class PostsController extends AppController {
 	
 	public function criaProtocolo(){
 		$this->Protocolo->create();
-		$codigoValidacao = uniqid().$this->Protocolo->getId();
-		$numeroProtocolo = uniqid().$this->Protocolo->getId();
+		$codigoValidacao = uniqid();
+		$numeroProtocolo = uniqid();
 		$this->Protocolo->save(array('Protocolo'=>array('numero_protocolo'=>$numeroProtocolo,
 														'codigo_validacao'=>$codigoValidacao)));
 		return $this->Protocolo->getId();	
