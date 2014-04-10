@@ -1,11 +1,26 @@
 <div class="posts view">
 <h2><?php echo __('Post'); ?></h2>
 	<dl>
-		<dt><?php echo __('Id'); ?></dt>
+		<dt><?php echo __('Protocolo'); ?></dt>
 		<dd>
-			<?php echo h($post['Post']['id']); ?>
+			<?php echo $this->Html->link($post['Protocolo']['numero_protocolo'], array('controller' => 'protocolos', 'action' => 'view', $post['Protocolo']['id'])); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Tipo'); ?></dt>
+		<dd>
+			<?php echo $this->Html->link($post['Tipo']['nome'], array('controller' => 'tipos', 'action' => 'view', $post['Tipo']['id'])); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Departamento'); ?></dt>
+		<dd>
+			<?php echo $this->Html->link($post['Departamento']['nome'], array('controller' => 'departamentos', 'action' => 'view', $post['Departamento']['id'])); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Tipo Usuario'); ?></dt>
+		<dd>
+			<?php echo $this->Html->link($post['TipoUsuario']['nome'], array('controller' => 'tipo_usuarios', 'action' => 'view', $post['TipoUsuario']['id'])); ?>
+			&nbsp;
+		</dd>		
 		<dt><?php echo __('Assunto'); ?></dt>
 		<dd>
 			<?php echo h($post['Post']['assunto']); ?>
@@ -49,26 +64,6 @@
 		<dt><?php echo __('Status'); ?></dt>
 		<dd>
 			<?php echo h($post['Post']['status']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Protocolo'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($post['Protocolo']['numero_protocolo'], array('controller' => 'protocolos', 'action' => 'view', $post['Protocolo']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Tipo'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($post['Tipo']['nome'], array('controller' => 'tipos', 'action' => 'view', $post['Tipo']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Departamento'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($post['Departamento']['nome'], array('controller' => 'departamentos', 'action' => 'view', $post['Departamento']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Tipo Usuario'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($post['TipoUsuario']['nome'], array('controller' => 'tipo_usuarios', 'action' => 'view', $post['TipoUsuario']['id'])); ?>
 			&nbsp;
 		</dd>
 	</dl>

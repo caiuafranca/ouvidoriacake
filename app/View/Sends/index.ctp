@@ -1,6 +1,6 @@
 <div class="sends index">
 	<h2><?php echo __('Sends'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
+	<table cellpadding="0" cellspacing="0" class="table table-responsive">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('descrcao'); ?></th>

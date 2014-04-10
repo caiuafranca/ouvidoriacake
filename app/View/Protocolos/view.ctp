@@ -34,7 +34,7 @@
 <div class="related">
 	<h3><?php echo __('Related Posts'); ?></h3>
 	<?php if (!empty($protocolo['Post'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
+	<table cellpadding = "0" cellspacing = "0" class="table table-responsive">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Assunto'); ?></th>
