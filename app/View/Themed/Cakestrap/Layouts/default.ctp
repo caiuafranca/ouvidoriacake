@@ -70,14 +70,25 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			
 		</div><!-- /#main-container -->
 		
+		<footer>
 		<div class="container">
 			<div class="well well-sm">
 				<small>
-					<?php echo '<center>Footer do Sistema de Ouvidoria</center>' ?>
+					<?php echo '<center>Desenvolvido: Caiua França - Footer do Sistema de Ouvidoria</center>' ?>
 				</small>
 			</div><!-- /.well well-sm -->
 		</div><!-- /.container -->
-		
+		</footer>
+		    
+    <?php
+        echo $this->Html->script(array('https://code.jquery.com/jquery.js','bootstrap.min','jquery.easyui.min','style'));
+        echo $this->Html->scriptBlock(
+            '
+                base_url = "'.$this->webroot.'";
+            '
+        );
+        echo $this->fetch('script');
+    ?>
 	</body>
 
 </html>
