@@ -29,7 +29,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<?php
 			echo $this->Html->meta('icon');
 			echo $this->fetch('meta');
-			echo $this->Html->css('bootstrap');
+			echo $this->Html->css(array('bootstrap','http://fonts.googleapis.com/css?family=Roboto+Condensed:400italic,700italic,400,700','style'));
 			echo $this->Html->css('main');
 			echo $this->fetch('css');
 			echo $this->Html->script('libs/jquery-1.10.2.min');
@@ -42,7 +42,17 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 
 		<div id="main-container">
 			<div id="header" class="container">
-				<?php echo $this->Html->image('ouvidoriaLogo.png',array('alt' => 'Sistema Ouvidoria')); ?>
+				<?php $img = $this->Html->image('ouvidoriaLogo.png',array('alt' => 'Sistema Ouvidoria'));
+					  echo $this->Html->link(
+                            $img,
+                            '/',
+                            array(
+                                'escape'=>false,
+                                'title'=>'Sistema de Ouvidoria',
+                                'class'=>'img-anima',
+                            )
+                        );				
+				 ?>
 			</div>
 		
 			<div id="header" class="container">
