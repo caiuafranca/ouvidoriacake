@@ -74,4 +74,24 @@ class PagesController extends AppController {
 			throw new NotFoundException();
 		}
 	}
+	
+	public function outroscanais() {
+        $this->set('active', 'outroscanais');
+	
+	}
+	
+	public function legislacao() {
+        $this->set('active', 'legislacao');
+	
+	}
+	
+	public function suporte() {
+        $this->set('active', 'suporte');
+	
+	}
+	
+	public function manual() {
+        $this->set('active', 'manual');
+	
+	}
 }

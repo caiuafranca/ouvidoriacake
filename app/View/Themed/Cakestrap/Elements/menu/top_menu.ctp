@@ -13,15 +13,15 @@
 			<li class="dropdown active">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Fale com Ouvidoria <b class="caret"></b></a>
 				<ul class="dropdown-menu">
-					<li><a href="">Criar Acionamento</a></li>
-					<li><a href="#">Outros Canais</a></li>
+					<li><a href="<?php echo $this->base?>/posts/add">Criar Acionamento</a></li>
+					<li><?php echo $this->Html->link(__('Outros Canais'), array('controller' => 'pages', 'action' => 'outroscanais'));?></li>
 				</ul>
 			</li>
 			<li><a href="<?php echo $this->base;?>/posts/busca">Consultar Protocolo</a></li>
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Informações<b class="caret"></b></a>
 				<ul class="dropdown-menu">
-					<li><a href="#">Legislação</a></li>
+					<li><?php echo $this->Html->link(__('Legislação'), array('controller' => 'pages', 'action' => 'legislacao'));?></li>
 					<li><a href="#">Tipos de Mensagens</a></li>
 					<li><a href="#">Tipos de Assuntos</a></li>
 					<li><a href="#">Resultados</a></li>
@@ -30,8 +30,8 @@
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Ajuda<b class="caret"></b></a>
 				<ul class="dropdown-menu">
-					<li><a href="#">Manual</a></li>
-					<li><a href="#">Suporte</a></li>
+					<li><?php echo $this->Html->link(__('Manual'), array('controller' => 'pages', 'action' => 'manual'));?></li>
+					<li><?php echo $this->Html->link(__('Suporte'), array('controller' => 'pages', 'action' => 'suporte'));?></li>
 				</ul>
 			</li>
 		</ul><!-- /.nav navbar-nav -->

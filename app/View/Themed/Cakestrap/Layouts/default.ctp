@@ -63,7 +63,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<div class="container">
 			<div class="well well-sm">
 				<small>
-					<?php echo 'Footer do Sistema de Ouvidoria' ?>
+					<?php echo '<center>Footer do Sistema de Ouvidoria</center>' ?>
 				</small>
 			</div><!-- /.well well-sm -->
 		</div><!-- /.container -->
