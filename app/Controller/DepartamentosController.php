@@ -20,7 +20,7 @@ class DepartamentosController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function admin_index() {
 		$this->Departamento->recursive = 0;
 		$this->set('departamentos', $this->Paginator->paginate());
 	}
@@ -32,7 +32,7 @@ class DepartamentosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
+	public function admin_view($id = null) {
 		if (!$this->Departamento->exists($id)) {
 			throw new NotFoundException(__('Invalid departamento'));
 		}
@@ -45,7 +45,7 @@ class DepartamentosController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->Departamento->create();
 			if ($this->Departamento->save($this->request->data)) {
@@ -64,7 +64,7 @@ class DepartamentosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function admin_edit($id = null) {
 		if (!$this->Departamento->exists($id)) {
 			throw new NotFoundException(__('Invalid departamento'));
 		}
@@ -88,7 +88,7 @@ class DepartamentosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function admin_delete($id = null) {
 		$this->Departamento->id = $id;
 		if (!$this->Departamento->exists()) {
 			throw new NotFoundException(__('Invalid departamento'));

@@ -34,6 +34,8 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			echo $this->fetch('css');
 			echo $this->Html->script('libs/jquery-1.10.2.min');
 			echo $this->Html->script('libs/bootstrap.min');
+			echo $this->Html->script(array('https://code.jquery.com/jquery.js','libs/jquery.easyui.min'));
+			echo $this->Html->scriptBlock('base_url = "'.$this->webroot.'";');
 			echo $this->fetch('script');
 		?>
 	</head>
@@ -79,16 +81,6 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			</div><!-- /.well well-sm -->
 		</div><!-- /.container -->
 		</footer>
-		    
-    <?php
-        echo $this->Html->script(array('https://code.jquery.com/jquery.js','bootstrap.min','jquery.easyui.min','style'));
-        echo $this->Html->scriptBlock(
-            '
-                base_url = "'.$this->webroot.'";
-            '
-        );
-        echo $this->fetch('script');
-    ?>
 	</body>
 
 </html>
