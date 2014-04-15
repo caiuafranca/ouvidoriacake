@@ -49,10 +49,10 @@ class SendsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Send->create();
 			if ($this->Send->save($this->request->data)) {
-				$this->Session->setFlash(__('The send has been saved.'));
+				$this->Session->setFlash(__('The send has been saved.'), 'flash/success');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The send could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The send could not be saved. Please, try again.'), 'flash/error');
 			}
 		}
 		$protocolos = $this->Send->Protocolo->find('list');
@@ -72,10 +72,10 @@ class SendsController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Send->save($this->request->data)) {
-				$this->Session->setFlash(__('The send has been saved.'));
+				$this->Session->setFlash(__('The send has been saved.'),'flash/success');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The send could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The send could not be saved. Please, try again.'), 'flash/error');
 			}
 		} else {
 			$options = array('conditions' => array('Send.' . $this->Send->primaryKey => $id));
@@ -99,9 +99,9 @@ class SendsController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Send->delete()) {
-			$this->Session->setFlash(__('The send has been deleted.'));
+			$this->Session->setFlash(__('The send has been deleted.'), 'flash/success');
 		} else {
-			$this->Session->setFlash(__('The send could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('The send could not be deleted. Please, try again.'), 'flash/error');
 		}
 		return $this->redirect(array('action' => 'index'));
 	}}

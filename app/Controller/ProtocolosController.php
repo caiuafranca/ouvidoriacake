@@ -49,10 +49,10 @@ class ProtocolosController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Protocolo->create();
 			if ($this->Protocolo->save($this->request->data)) {
-				$this->Session->setFlash(__('The protocolo has been saved.'));
+				$this->Session->setFlash(__('The protocolo has been saved.'), 'flash/success');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The protocolo could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The protocolo could not be saved. Please, try again.'),'flash/error');
 			}
 		}
 	}
@@ -70,10 +70,10 @@ class ProtocolosController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Protocolo->save($this->request->data)) {
-				$this->Session->setFlash(__('The protocolo has been saved.'));
+				$this->Session->setFlash(__('The protocolo has been saved.'), 'flash/success');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The protocolo could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The protocolo could not be saved. Please, try again.'), 'flash/error');
 			}
 		} else {
 			$options = array('conditions' => array('Protocolo.' . $this->Protocolo->primaryKey => $id));
@@ -95,9 +95,9 @@ class ProtocolosController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Protocolo->delete()) {
-			$this->Session->setFlash(__('The protocolo has been deleted.'));
+			$this->Session->setFlash(__('The protocolo has been deleted.'),'flash/success');
 		} else {
-			$this->Session->setFlash(__('The protocolo could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('The protocolo could not be deleted. Please, try again.'), 'flash/error');
 		}
 		return $this->redirect(array('action' => 'index'));
 	}}

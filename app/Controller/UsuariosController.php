@@ -79,7 +79,7 @@ class UsuariosController extends AppController {
 				$this -> Session -> setFlash(__('The usuario has been saved.'));
 				return $this -> redirect(array('action' => 'index'));
 			} else {
-				$this -> Session -> setFlash(__('The usuario could not be saved. Please, try again.'));
+				$this -> Session -> setFlash(__('The usuario could not be saved. Please, try again.'),'flash/success');
 			}
 		}
 	}
@@ -97,10 +97,10 @@ class UsuariosController extends AppController {
 		}
 		if ($this -> request -> is(array('post', 'put'))) {
 			if ($this -> Usuario -> save($this -> request -> data)) {
-				$this -> Session -> setFlash(__('The usuario has been saved.'));
+				$this -> Session -> setFlash(__('The usuario has been saved.'),'flash/success');
 				return $this -> redirect(array('action' => 'index'));
 			} else {
-				$this -> Session -> setFlash(__('The usuario could not be saved. Please, try again.'));
+				$this -> Session -> setFlash(__('The usuario could not be saved. Please, try again.'),'flash/error');
 			}
 		} else {
 			$options = array('conditions' => array('Usuario.' . $this -> Usuario -> primaryKey => $id));
@@ -122,9 +122,9 @@ class UsuariosController extends AppController {
 		}
 		$this -> request -> onlyAllow('post', 'delete');
 		if ($this -> Usuario -> delete()) {
-			$this -> Session -> setFlash(__('The usuario has been deleted.'));
+			$this -> Session -> setFlash(__('The usuario has been deleted.'),'flash/success');
 		} else {
-			$this -> Session -> setFlash(__('The usuario could not be deleted. Please, try again.'));
+			$this -> Session -> setFlash(__('The usuario could not be deleted. Please, try again.'),'flash/error');
 		}
 		return $this -> redirect(array('action' => 'index'));
 	}
