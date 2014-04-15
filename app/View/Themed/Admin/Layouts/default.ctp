@@ -47,7 +47,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 				<?php $img = $this->Html->image('ouvidoriaLogo.png',array('alt' => 'Sistema Ouvidoria'));
 					  echo $this->Html->link(
                             $img,
-                            '/',
+                            '/admin/',
                             array(
                                 'escape'=>false,
                                 'title'=>'Sistema de Ouvidoria',

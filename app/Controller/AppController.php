@@ -76,7 +76,6 @@ class AppController extends Controller {
 			parent::beforeFilter();
    			$this->Auth->allow('add');
 		} else {
-			
 			$this->Auth->allow();		
 		}
 			

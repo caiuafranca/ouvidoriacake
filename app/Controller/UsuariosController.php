@@ -16,7 +16,7 @@ class UsuariosController extends AppController {
 	public $components = array('Paginator');
 	
 	function beforeFilter(){
-		$this->Auth->allow();
+		$this->Auth->allow('add');
 		$this->Auth->userModel = "Usuario";
 		$this->Auth->fields = array('username'=>'username','password'=>'password');
 		}
