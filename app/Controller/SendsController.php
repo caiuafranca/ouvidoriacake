@@ -20,7 +20,7 @@ class SendsController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function admin_index() {
 		$this->Send->recursive = 0;
 		$this->set('sends', $this->Paginator->paginate());
 	}
@@ -45,7 +45,7 @@ class SendsController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->Send->create();
 			if ($this->Send->save($this->request->data)) {
@@ -66,7 +66,7 @@ class SendsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function admin_edit($id = null) {
 		if (!$this->Send->exists($id)) {
 			throw new NotFoundException(__('Invalid send'));
 		}
@@ -92,7 +92,7 @@ class SendsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function admin_delete($id = null) {
 		$this->Send->id = $id;
 		if (!$this->Send->exists()) {
 			throw new NotFoundException(__('Invalid send'));

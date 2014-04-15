@@ -30,7 +30,6 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
         echo $this->fetch('meta');
 
         echo $this->Html->css('bootstrap.min');
-
         echo $this->Html->css('login');
         echo $this->Html->css('core');
 
@@ -55,7 +54,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 
             <div id="footer" class="container">
                 <?php 
-                	echo $this->element('sql_dump');
+                	//echo $this->element('sql_dump');
                   ?>
             </div><!-- /#footer .container -->
 
