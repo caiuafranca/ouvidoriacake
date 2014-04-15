@@ -20,7 +20,7 @@ class TiposController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function admin_index() {
 		$this->Tipo->recursive = 0;
 		$this->set('tipos', $this->Paginator->paginate());
 	}
@@ -32,7 +32,7 @@ class TiposController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
+	public function admin_view($id = null) {
 		if (!$this->Tipo->exists($id)) {
 			throw new NotFoundException(__('Invalid tipo'));
 		}
@@ -45,7 +45,7 @@ class TiposController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->Tipo->create();
 			if ($this->Tipo->save($this->request->data)) {
@@ -64,7 +64,7 @@ class TiposController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function admin_edit($id = null) {
 		if (!$this->Tipo->exists($id)) {
 			throw new NotFoundException(__('Invalid tipo'));
 		}
@@ -88,7 +88,7 @@ class TiposController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function admin_delete($id = null) {
 		$this->Tipo->id = $id;
 		if (!$this->Tipo->exists()) {
 			throw new NotFoundException(__('Invalid tipo'));

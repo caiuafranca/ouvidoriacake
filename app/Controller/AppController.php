@@ -33,13 +33,80 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
 
 //	public $components = array('DebugKit.Toolbar');
+	
+	 public $components = array(
+        'Session',
+        'Auth' => array(
+            'loginAction'=>array(
+                'controller'=>'usuarios',
+                'action'=>'login'
+            ),
+            'authenticate'=>array(
+                'Form' => array(
+                     'userModel'=>'Usuario'
+                )
+            )
+        )
+    );
+	
 	public function beforeRender()
 	{
 		if ((!empty($this->request->params['prefix'])) and ($this->request->params['prefix'] == 'admin')) 
 		{
-			$this->theme = 'default';
+			$this->theme = 'admin';
 		} else {
+			
 			$this->theme = 'cakestrap';		
-		}			
+		}
+		
+		if (isset($this->request->data[$this->modelClass])) {
+            foreach ($this->request->data[$this->modelClass] as $key => $value) {
+                if (($key == 'date' || $key == 'arrival_date' || $key == 'departure_date') && !empty($value)) {
+                    $this->request->data[$this->modelClass][$key] = $this->dateFormat($this->request->data[$this->modelClass][$key]);
+                }
+            }
+        }
+        parent::beforeRender();			
+	}
+	
+	public function beforeFilter()
+	{
+		if ((!empty($this->request->params['prefix'])) and ($this->request->params['prefix'] == 'admin')) 
+		{
+			parent::beforeFilter();
+   			$this->Auth->allow('add');
+		} else {
+			
+			$this->Auth->allow();		
+		}
+			
+	}
+   
+    function dateFormat($data, $hora = false) {
+        if (strpos($data, '-')) {
+            $data2 = explode(' ', $data);
+            $d = explode("-", $data2[0]);
+            $retorno = $d[2] . '/' . $d[1] . '/' . $d[0];
+            if ($hora) {
+                $retorno .= ' ' . $data2[1];
+            }
+            return $retorno;
+        } else if (strpos($data, '/')) {
+            $data2 = explode(' ', $data);
+            $d = explode("/", $data2[0]);
+            $retorno = $d[2] . '-' . $d[1] . '-' . $d[0];
+            if ($hora) {
+                $retorno .= ' ' . $data2[1];
+            }
+            return $retorno;
+        }
+    }
+
+	public function beforeSave($options = array()) {
+		if (isset($this->data[$this->alias]['password'])) {
+			$hash = Security::hash($this->data[$this->alias]['password'], 'blowfish');
+            $this->data[$this->alias]['password'] = $hash;
+		}
+		return true;
 	}
 }

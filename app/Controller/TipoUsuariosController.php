@@ -20,7 +20,7 @@ class TipoUsuariosController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function admin_index() {
 		$this->TipoUsuario->recursive = 0;
 		$this->set('tipoUsuarios', $this->Paginator->paginate());
 	}
@@ -32,7 +32,7 @@ class TipoUsuariosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
+	public function admin_view($id = null) {
 		if (!$this->TipoUsuario->exists($id)) {
 			throw new NotFoundException(__('Invalid tipo usuario'));
 		}
@@ -45,7 +45,7 @@ class TipoUsuariosController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->TipoUsuario->create();
 			if ($this->TipoUsuario->save($this->request->data)) {
@@ -64,7 +64,7 @@ class TipoUsuariosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function admin_edit($id = null) {
 		if (!$this->TipoUsuario->exists($id)) {
 			throw new NotFoundException(__('Invalid tipo usuario'));
 		}
@@ -88,7 +88,7 @@ class TipoUsuariosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function admin_delete($id = null) {
 		$this->TipoUsuario->id = $id;
 		if (!$this->TipoUsuario->exists()) {
 			throw new NotFoundException(__('Invalid tipo usuario'));

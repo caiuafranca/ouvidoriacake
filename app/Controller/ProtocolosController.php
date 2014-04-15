@@ -20,7 +20,7 @@ class ProtocolosController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function admin_index() {
 		$this->Protocolo->recursive = 0;
 		$this->set('protocolos', $this->Paginator->paginate());
 	}
@@ -32,7 +32,7 @@ class ProtocolosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
+	public function admin_view($id = null) {
 		if (!$this->Protocolo->exists($id)) {
 			throw new NotFoundException(__('Invalid protocolo'));
 		}
@@ -45,7 +45,7 @@ class ProtocolosController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->Protocolo->create();
 			if ($this->Protocolo->save($this->request->data)) {
@@ -64,7 +64,7 @@ class ProtocolosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function admin_edit($id = null) {
 		if (!$this->Protocolo->exists($id)) {
 			throw new NotFoundException(__('Invalid protocolo'));
 		}
@@ -88,7 +88,7 @@ class ProtocolosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function admin_delete($id = null) {
 		$this->Protocolo->id = $id;
 		if (!$this->Protocolo->exists()) {
 			throw new NotFoundException(__('Invalid protocolo'));

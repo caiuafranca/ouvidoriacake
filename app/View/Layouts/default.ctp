@@ -58,7 +58,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	</div>
 	<?php 
 		echo "footer do sistema";
-	// echo $this->element('sql_dump'); 
+	echo $this->element('sql_dump'); 
 	?>
 </body>
 </html>
