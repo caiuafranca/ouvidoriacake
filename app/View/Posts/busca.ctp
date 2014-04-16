@@ -14,7 +14,7 @@ if (!empty($busca)) {
 	echo "<strong>Situação: </strong>";
 	echo h($busca[0]['Post']['status']) . "<br />";
 	echo "<strong>Data Abertura: </strong>";
-	echo h($busca[0]['Post']['data_menssagem']) . "<br />";
+	echo h($busca[0]['Post']['data_menssagem']) . "<br /> <br />";
 } else {
 	echo "<br /><p> <strong>É preciso inserir um Número do Protocolo<strong></p> <br />";
 }

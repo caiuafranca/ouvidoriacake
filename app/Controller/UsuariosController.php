@@ -28,6 +28,7 @@ class UsuariosController extends AppController {
 			$this->Usuario->set($this->request->data);
 			
 			if ($this->Auth->login()) {
+				$this->Session->write($this->Usuario->set($this->request->data));
 				return $this->redirect($this->Auth->redirectUrl());			
 			}else{
 				$this->Session->setFlash(__('Não Foi Possivel se conectar'), 'flash/error');
@@ -49,6 +50,11 @@ class UsuariosController extends AppController {
 	public function admin_index() {
 		$this -> Usuario -> recursive = 0;
 		$this -> set('usuarios', $this -> Paginator -> paginate());
+	}
+	
+	public function admin_dashboard(){
+		$user = $this->Session->read();
+		$this->set('user',$user);
 	}
 
 	/**

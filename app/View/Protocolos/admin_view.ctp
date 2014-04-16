@@ -1,3 +1,17 @@
+<!-- <div class="actions">
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
+		<li><?php echo $this->Html->link(__('Edit Protocolo'), array('action' => 'edit', $protocolo['Protocolo']['id'])); ?> </li>
+		<li><?php echo $this->Form->postLink(__('Delete Protocolo'), array('action' => 'delete', $protocolo['Protocolo']['id']), null, __('Are you sure you want to delete # %s?', $protocolo['Protocolo']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('List Protocolos'), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Protocolo'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Posts'), array('controller' => 'posts', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Post'), array('controller' => 'posts', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Sends'), array('controller' => 'sends', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Send'), array('controller' => 'sends', 'action' => 'add')); ?> </li>
+	</ul>
+</div> -->
+
 <div class="protocolos view">
 <h2><?php echo __('Protocolo'); ?></h2>
 	<dl>
@@ -18,19 +32,7 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Protocolo'), array('action' => 'edit', $protocolo['Protocolo']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Protocolo'), array('action' => 'delete', $protocolo['Protocolo']['id']), null, __('Are you sure you want to delete # %s?', $protocolo['Protocolo']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Protocolos'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Protocolo'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Posts'), array('controller' => 'posts', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Post'), array('controller' => 'posts', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Sends'), array('controller' => 'sends', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Send'), array('controller' => 'sends', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+
 <div class="related">
 	<h3><?php echo __('Related Posts'); ?></h3>
 	<?php if (!empty($protocolo['Post'])): ?>
